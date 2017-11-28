@@ -6,15 +6,19 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  extends: 'vue',
   env: {
     browser: true,
   },
-  // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-  extends: 'standard',
   // required to lint *.vue files
   plugins: [
     'html'
   ],
+  globals: {
+    '$': true,
+    '_': true,
+    'utils': true
+  },
   // add your custom rules here
   'rules': {
     // allow paren-less arrow functions

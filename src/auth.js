@@ -78,14 +78,14 @@ export default {
    * @return {Promise}
    */
   login (creds, redirect) {
-    const params = {'grant_type': 'password', 'username': creds.username, 'password': creds.password}
+    const params = { 'grant_type': 'password', 'username': creds.username, 'password': creds.password }
 
     return Vue.http.post(LOGIN_URL, params, AUTH_BASIC_HEADERS)
       .then((response) => {
         this._storeToken(response)
 
         if (redirect) {
-          router.push({name: redirect})
+          router.push({ name: redirect })
         }
 
         return response

@@ -15,7 +15,7 @@ Vue.config.productionTip = false
 import './assets/style/app.scss'
 
 /* App component */
-import App from './App.vue'
+import App from './components/App.vue'
 
 /* Auth plugin */
 import Auth from './auth'

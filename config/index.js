@@ -10,7 +10,32 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/auth': {
+        // TODO: Update to use node express oauth2 server for better example.
+        target: 'http://brentertainment.com/oauth2/lockdin/token',  // <-- demo oauth2 server, https://github.com/bshaffer/oauth2-demo-php
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/auth': ''
+        },
+        router: {
+        }
+      },
+      '/api': {
+        target: 'http://brentertainment.com/oauth2',  // api server
+        changeOrigin: true,                           // needed for virtual hosted sites
+        ws: true,                                     // proxy websockets
+        pathRewrite: {
+          '^/api': '/lockdin'     // rewrite path localhost:8080/api to http://brentertainment.com/oauth2/lockdin
+        },
+        router: {
+          // when request.headers.host == 'dev.localhost:3000',
+          // override target 'http://www.example.org' to 'http://localhost:8000'
+          // 'dev.localhost:3000': 'http://localhost:8000'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

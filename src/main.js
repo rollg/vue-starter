@@ -1,5 +1,5 @@
 /* Twitter Bootstrap JS (this could also be handled in an app.js file) */
-require('bootstrap')
+require('bootstrap/dist/js/bootstrap.bundle.min')
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
@@ -19,6 +19,7 @@ import App from './components/App.vue'
 
 /* Auth plugin */
 import Auth from './auth'
+Vue.use(Auth)
 
 /* eslint-disable no-new */
 // new Vue({

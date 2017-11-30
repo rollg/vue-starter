@@ -28,7 +28,8 @@ const router = new Router({
       name: 'dashboard',
       component: function (resolve) {
         require(['@/components/dashboard/Dashboard.vue'], resolve)
-      }
+      },
+      beforeEnter: guardRoute
     }
   ]
 })
